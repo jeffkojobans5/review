@@ -127,7 +127,7 @@ form button:hover , .comment a:hover {
 
 .form-comment {
   position: relative;
-  top: -200px;
+  top: -400px;
   background-color: gray;
   width: 100%;
   display: flex;
