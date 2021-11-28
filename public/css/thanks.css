@@ -1,0 +1,55 @@
+html , body {
+    border: none;
+    padding: none;
+    margin: 0;
+    box-sizing: border-box;
+}            
+body {
+    font-family: 'Poppins', sans-serif;                
+}
+header {
+    margin:0;
+}
+header h1 {
+    position: relative;
+    top: 0px;
+    font-size: 3rem;
+    color: gray;
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+    animation: comedown 1s forwards ;
+}
+
+@keyframes comedown {
+    to {
+        top: 300px;
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+main section h1 {
+    font-size: 8rem;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0px;
+    max-height: 500px;
+    width: 90%;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+.logo {
+    position: relative;
+    top: 30px;
+    height: 90px ;
+    width: 90px;
+}
