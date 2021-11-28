@@ -36,7 +36,7 @@ Route::get('/PearlsDeli' , function() {
 });
 
 Route::get('/Linaks' , function() {
-    return view('shops.Linaks.Linaks');
+    return view('shops.Linaks.linaks');
 });
 
 Route::get('/JsLounge' , function() {
