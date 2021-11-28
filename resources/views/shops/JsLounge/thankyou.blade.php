@@ -23,7 +23,7 @@
     <script>
         function Redirect() 
         {  
-            window.location.href = "http://127.0.0.1:8000/JsLounge" 
+            window.location.href = "http://reviews-page.herokuapp.com/JsLounge" 
         } 
         setTimeout('Redirect()', 5000); 
     </script>

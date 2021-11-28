@@ -23,7 +23,7 @@
     <script>
         function Redirect() 
         {  
-            window.location.href = "http://127.0.0.1:8000/Linaks" 
+            window.location.href = "http://reviews-page.herokuapp.com/Linaks" 
         } 
         setTimeout('Redirect()', 5000); 
     </script>

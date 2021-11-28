@@ -24,7 +24,7 @@
     <script>
         function Redirect() 
         {  
-            window.location.href = "http://127.0.0.1:8000/PearlsDeli" 
+            window.location.href = "http://reviews-page.herokuapp.com/PearlsDeli" 
         } 
         setTimeout('Redirect()', 5000); 
     </script>
