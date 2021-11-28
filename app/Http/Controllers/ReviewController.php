@@ -66,7 +66,7 @@ class ReviewController extends Controller
     }    
 
     public function reviewsJsLounge() {
-        $allReviews = Review::where('branch' , 'JsLounge')->paginate(1);
+        $allReviews = Review::where('branch' , 'JsLounge')->paginate(10);
         $impressed = Review::where('ratings' , 'Very Impressed')->where('branch' , 'JsLounge')->get();
         $satisfied = Review::where('ratings' , 'Satisfied')->where('branch' , 'JsLounge')->get();
         $ok = Review::where('ratings' , 'Ok')->where('branch' , 'JsLounge')->get();
