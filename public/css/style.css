@@ -42,16 +42,57 @@ header img {
   padding: 0.5rem;
 }
 
+.link-right {
+  height: 4.2rem ; 
+  background-color: whitesmoke ; 
+  font-size: 1.4rem ; 
+  color: red;
+  padding-top: 1.1rem ; 
+  padding-left: 0.5rem ; 
+  padding-right: 0.5rem ;
+  cursor: pointer;
+}
+
+
+.logo {
+  flex-direction: column;
+}
+
+.logo p {
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.logo-heading {
+  color: #EE4B2B;
+}
+
 main {
-  min-height: 70vh;
+  min-height: 40vh;
+  position: relative;
 }
 
 main .container {
-  min-height: 70vh;
+  min-height: 60vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.question {
+  text-align: center ; 
+  position: relative; 
+  top: 4rem ;  
+  display: block ; 
+  margin: 0 auto  
+}
+
+.question-span {
+  background-color: gray ; 
+  color: white; 
+  padding: 0.5rem;  
+  font-weight: 200;
 }
 
 section {
@@ -65,8 +106,12 @@ section h1  , section p{
   transition: 0.5s all;
 }
 
+section p {
+  position: relative;
+  top: 3px;
+}
 section h1 {
-  font-size: 10rem;
+  font-size: 8rem;
 }
 
 .make-big {
@@ -81,7 +126,9 @@ section h1:hover {
   display: flex;
   justify-content: center;
   align-items: start;
+  transition: 0.5s all;
 }
+
 .form button  {
   padding: 1.2rem;
   border: none;
@@ -105,16 +152,17 @@ form button:hover , .comment a:hover {
 .form , .comment {
   flex: 1;
   display: flex;
+  z-index: 99999;
+
 }
 
 .comment {
   transform: translateX(800px);
-  transition: 0.5s all;
-
+  transition: 1s all;
 }
 .form {
   justify-content: end;
-  transition: 0.5s all;
+  transition: 1s all;
   transform: translateX(-800px);
 }
 
@@ -152,7 +200,8 @@ form button:hover , .comment a:hover {
 }   
 
 .bring-back {
-  transform: translateY(0)
+  position: relative;
+  transform:  translateX(0);
 }
 
 .text-stand-out {
@@ -160,6 +209,48 @@ form button:hover , .comment a:hover {
   transform: scale(1.5);
 }
 
+.rate-food {
+  position: relative;
+  top: 0 ;
+  z-index: 999;
+  width: 100% ; 
+}
+
+.rate-service {
+  position: absolute ; 
+  top: 0 ;
+  z-index: 999;
+  left: 2000px;
+  width: 100% ; 
+}
+
+.next {
+  transition: 0.5s all;
+  transform: translateX(-800px);  
+}
+
+
+.next button {
+  background-color: red;
+  color: white;
+  padding: 0.6rem 1rem ;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border: none;  
+  cursor: pointer;
+
+}
+
+@media only screen and (max-width: 890px) {
+  section h1 {
+    font-size: 6rem;
+  }
+  main .container {
+    min-height: 50vh;
+    margin-top: 4rem;
+  }
+
+}
 
 @media only screen and (max-width: 660px) {
   header .container {
@@ -178,5 +269,24 @@ form button:hover , .comment a:hover {
   section h1:hover {
   transform: scale(1.3);
   text-align: center;
-}                       
+  }                       
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+  .logo p {
+    font-size: 1rem;
+  }
+  main .container {
+    min-height: 42vh;
+    margin-top: 4rem;
+  }
+
+  .question {
+    font-size: 1.2rem ;
+  }
+
+  .link-right , .form button {
+    font-size: 1.2rem;
+  }
 }
+

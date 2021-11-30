@@ -19,46 +19,83 @@
             <div class="container">
                 <div class="logo">
                     <img src=" {{ asset('img/JsLoungeLogo.jpeg') }} " alt="logo" >                
-                    <h1> <span class="bold-text">Hello Customer </span>, Please rate us &#128077;  </h1>
+                    <h1> <span class="bold-text"> <span class="logo-heading">Hello Customer </span> </span>, We value &#128525; your feedback   </h1>
+                    <p> Please complete the following form and help us improve our customer service </p>
                 </div>   
             </header>
                 <main>
                     <div class="form-comment">
                         <textarea id="fakeComment" cols="4" rows="7" placeholder="Enter your comment here ... "></textarea>
                     </div>                    
+                <div class="rate-food">
+                    <h1 class="question"> <span class="question-span">How satisfied are you with our food &#127869; ? </span></h1>                                        
                     <div class="container" >
-                        <section class="gsap">
-                            <p> Very Impressed </p>
-                            <h1 class="emoji"> &#128512;  </h1>                          
+                        <section>
+                            <p> Very Satisfied </p>
+                            <h1 class="food-emoji"> &#128512;  </h1>                          
                         </section>
                         <section>
                             <p> Satisfied </p>
-                            <h1 class="emoji"> &#128522;  </h1>                          
+                            <h1 class="food-emoji"> &#128522;  </h1>                          
                         </section>
                         <section>
-                            <p>  Ok </p>
-                            <h1 class="emoji"> &#128528;   </h1>                          
+                            <p>  Neutral </p>
+                            <h1 class="food-emoji"> &#128528;   </h1>                          
                         </section>
                         <section>
-                            <p> Not Impressed </p>
-                            <h1 class="emoji"> &#128533;  </h1>                          
+                            <p> Unsatisfied </p>
+                            <h1 class="food-emoji"> &#128533;  </h1>                          
                         </section>
                         <section>
-                            <p> Poor Service </p>
-                            <h1 class="emoji"> &#128544;   </h1>                          
+                            <p> Very Unsatisfied </p>
+                            <h1 class="food-emoji"> &#128544;   </h1>                          
                         </section>                                                                                                
-                    </div>                        
+                    </div>       
+                </div>    
+                    
+                <div class="rate-service">
+                    <h1 class="question"> <span class="question-span">How satisfied are you with our service &#129309; ? </span></h1>                    
+                    <div class="container " style="">
+                        <section>
+                            <p> Very Satisfied </p>
+                            <h1 class="service-emoji"> &#128512;  </h1>                          
+                        </section>
+                        <section>
+                            <p> Satisfied </p>
+                            <h1 class="service-emoji"> &#128522;  </h1>                          
+                        </section>
+                        <section>
+                            <p>  Neutral </p>
+                            <h1 class="service-emoji"> &#128528;   </h1>                          
+                        </section>
+                        <section>
+                            <p> Unsatisfied </p>
+                            <h1 class="service-emoji"> &#128533;  </h1>                          
+                        </section>
+                        <section>
+                            <p> Very Unsatisfied </p>
+                            <h1 class="service-emoji"> &#128544;   </h1>                          
+                        </section>                                                                                                
+                    </div>  
+                </div>   
+
                 </main>
-                <div class="buttons">
+                
+                <div class="next buttons">  
+                    <button id="nextButtons"> next &#128073; </button>
+                </div>
+
+                <div class="buttons" style="margin-top: -53px">
                         <form action=" {{ route('thank___you') }}  " method="post" class="form">
                             @csrf
-                            <input type="hidden" id="ratings" name="ratings" value="">                    
+                            <input type="hidden" id="food-rate" name="foodRatings" value="">                    
+                            <input type="hidden" id="service-rate" name="serviceRatings" value="">                    
                             <input type="hidden" id="ratings" name="branch" value="JsLounge">  
-                            <input type="hidden" id="comment" name="comment" value="N/A">  
+                            <input type="hidden" id="comment" name="comments" value="N/A">  
                             <button type="submit" name="submit" > Submit </button>
                         </form>
                         <div class="comment">
-                            <a class="link-right" id="sub"> Submit with <br/>Comments </a>
+                            <p class="link-right" id="sub"> Tell us how we can improve </p>
                         </div>
                 </div>
             </div>

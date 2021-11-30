@@ -41,8 +41,8 @@
                             <i class="fas fa-chart-bar"></i> Reviews </a>
                         <div class="dash-nav-dropdown-menu">
                             <a href="/reviews/PearlsDeli" class="dash-nav-dropdown-item"> Pearls Deli </a>
-                            <a href="/reviews/JsLounge" class="dash-nav-dropdown-item"> Js Lounge </a>
-                            <a href="/reviews/Linaks" class="dash-nav-dropdown-item"> Linaks Collections </a>
+                            {{-- <a href="/reviews/JsLounge" class="dash-nav-dropdown-item"> Js Lounge </a> --}}
+                            {{-- <a href="/reviews/Linaks" class="dash-nav-dropdown-item"> Linaks Collections </a> --}}
                         </div>
                     </div>
                 </nav>

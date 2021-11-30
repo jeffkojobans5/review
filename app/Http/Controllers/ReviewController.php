@@ -6,23 +6,32 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-
     public function index() {
-        $allReviews = Review::orderBy('created_at' , 'DESC')->get();
-        $impressed = Review::where('ratings' , 'Very Impressed')->get();
-        $satisfied = Review::where('ratings' , 'Satisfied')->get();
-        $ok = Review::where('ratings' , 'Ok')->get();
-        $notImpressed = Review::where('ratings' , 'Not Impressed')->get();
-        $poorService = Review::where('ratings' , 'Poor Service')->get();
+        // $allReviews = Review::orderBy('created_at' , 'DESC')->get();
+        // $impressed = Review::where('foodRatings' , 'Very Satisfied')->get();
+        // $satisfied = Review::where('serviceRatings' , 'Satisfied')->get();
+        // $ok = Review::where('ratings' , 'Ok')->get();
+        // $notImpressed = Review::where('ratings' , 'Not Impressed')->get();
+        // $poorService = Review::where('ratings' , 'Poor Service')->get();
 
-        $PearlsDeli = Review::where('branch' , 'PearlsDeli')->get();
-        $JsLounge = Review::where('branch' , 'JsLounge')->get();
-        $Linaks = Review::where('branch' , 'Linaks')->get();
+        // $PearlsDeli = Review::where('branch' , 'PearlsDeli')->get();
+        // $JsLounge = Review::where('branch' , 'JsLounge')->get();
+        // $Linaks = Review::where('branch' , 'Linaks')->get();
 
-        return view('admin.dashboard')->with('allReviews' , $allReviews)->with('veryImpressed' , $impressed)
-        ->with('satisfied' , $satisfied)->with('ok' , $ok)->with('notImpressed' , $notImpressed)->with('poorService' , $poorService)
-        ->with('PearlsDeli' , $PearlsDeli)->with('JsLounge' , $JsLounge)->with('Linaks' , $Linaks);
+        // return view('admin.dashboard')->with('allReviews' , $allReviews)->with('veryImpressed' , $impressed)
+        // ->with('satisfied' , $satisfied)->with('ok' , $ok)->with('notImpressed' , $notImpressed)->with('poorService' , $poorService)
+        // ->with('PearlsDeli' , $PearlsDeli)->with('JsLounge' , $JsLounge)->with('Linaks' , $Linaks);
     }
+
+
+
+    public function DashJsLounge () {
+
+        $allReviews = Review::where('branch' , 'JsLounge')->get();
+
+        return view('admin.dashboard')->with('allReviews' , $allReviews);
+    }
+
 
     public function PearlsDeli(Request $request) {
         $review = new Review;
@@ -45,9 +54,10 @@ class ReviewController extends Controller
     
     public function JsLounge(Request $request) {
         $review = new Review;
-        $review->ratings = $request->ratings;
+        $review->foodRatings = $request->foodRatings;
+        $review->serviceRatings = $request->serviceRatings;
         $review->branch = $request->branch;
-        $review->comment = $request->comment;
+        $review->comments = $request->comments;
         $review->save();
         return view('shops.JsLounge.thankyou');
     }
@@ -67,14 +77,23 @@ class ReviewController extends Controller
 
     public function reviewsJsLounge() {
         $allReviews = Review::where('branch' , 'JsLounge')->paginate(10);
-        $impressed = Review::where('ratings' , 'Very Impressed')->where('branch' , 'JsLounge')->get();
-        $satisfied = Review::where('ratings' , 'Satisfied')->where('branch' , 'JsLounge')->get();
-        $ok = Review::where('ratings' , 'Ok')->where('branch' , 'JsLounge')->get();
-        $notImpressed = Review::where('ratings' , 'Not Impressed')->where('branch' , 'JsLounge')->get();
-        $poorService = Review::where('ratings' , 'Poor Service')->where('branch' , 'JsLounge')->get();
+        $verySatisfiedFood = Review::where('foodRatings' , 'Very Satisfied')->where('branch' , 'JsLounge')->get();
+        $satisfiedFood = Review::where('foodRatings' , 'Satisfied')->where('branch' , 'JsLounge')->get();
+        $neutralFood = Review::where('foodRatings' , 'Neutral')->where('branch' , 'JsLounge')->get();
+        $unsatisfiedFood = Review::where('foodRatings' , 'Unsatisfied')->where('branch' , 'JsLounge')->get();
+        $veryUnsatisfiedFood = Review::where('foodRatings' , 'Very Unsatisfied')->where('branch' , 'JsLounge')->get();
 
-        return view('admin.JsLounge')->with('allReviews' , $allReviews)->with('veryImpressed' , $impressed)
-        ->with('satisfied' , $satisfied)->with('ok' , $ok)->with('notImpressed' , $notImpressed)->with('poorService' , $poorService);
+        $verySatisfiedService = Review::where('serviceRatings' , 'Very Satisfied')->where('branch' , 'JsLounge')->get();
+        $satisfiedService = Review::where('serviceRatings' , 'Satisfied')->where('branch' , 'JsLounge')->get();
+        $neutralService = Review::where('serviceRatings' , 'Neutral')->where('branch' , 'JsLounge')->get();
+        $unsatisfiedService = Review::where('serviceRatings' , 'Unsatisfied')->where('branch' , 'JsLounge')->get();
+        $veryUnsatisfiedService = Review::where('serviceRatings' , 'Very Unsatisfied')->where('branch' , 'JsLounge')->get();
+
+        
+        return view('admin.JsLounge')->with('allReviews' , $allReviews)->with('verySatisfiedFood' , $verySatisfiedFood)->with('satisfiedFood' , $satisfiedFood)->with('neutralFood' , $neutralFood)
+                ->with('unsatisfiedFood' , $unsatisfiedFood)->with('veryUnsatisfiedFood' , $veryUnsatisfiedFood)->with('verySatisfiedService' , $verySatisfiedService)
+                ->with('satisfiedService' , $satisfiedService)->with('neutralService' , $neutralService)->with('unsatisfiedService' , $unsatisfiedService)
+                ->with('veryUnsatisfiedService' , $veryUnsatisfiedService);
     }    
 
 
