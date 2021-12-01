@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> Pearls || Js Lounge || Linaks </title>
+    <title> Js Lounge </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
