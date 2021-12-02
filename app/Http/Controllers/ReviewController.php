@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Review;
+use App\Exports\ReviewsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Maatwebsite\Excel\Concerns\FromView;
 
 class ReviewController extends Controller
 {
@@ -108,5 +112,28 @@ class ReviewController extends Controller
         return view('admin.Linaks')->with('allReviews' , $allReviews)->with('veryImpressed' , $impressed)
         ->with('satisfied' , $satisfied)->with('ok' , $ok)->with('notImpressed' , $notImpressed)->with('poorService' , $poorService);
     }      
+
+
+    
+
+    public function JsLoungeReport ( Request $request)  {
+        
+        if (request()->start_date || request()->end_date) {
+            $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
+            $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
+            $allReviews = Review::whereBetween('created_at',[$start_date,$end_date])->get();
+        } else {
+            $allReviews = Review::all();
+        }
+    
+        return view('admin.JsLoungeReport')->with('allReviews', $allReviews)->with('status' , 'hello') ;
+    }
+
+    
+    public function export () {
+
+        return Excel::download(new ReviewsExport, 'invoices.xlsx');
+
+    }    
 }
 

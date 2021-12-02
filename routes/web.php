@@ -20,6 +20,9 @@ Route::get('/dashboard' , [ReviewController::class , 'DashJsLounge']);
 // Route::get('/reviews/PearlsDeli' , [ReviewController::class , 'reviewsPearlsDeli']);
 // Route::get('/reviews/Linaks' , [ReviewController::class , 'reviewsLinaks']);
 Route::get('/reviews/JsLounge' , [ReviewController::class , 'reviewsJsLounge']);
+Route::get('/JsLounge/report' , [ReviewController::class , 'JsLoungeReport'])->name('GenerateJsLoungeReport');
+Route::get('/export',  [ReviewController::class , 'export'])->name('export');
+
 
 });
 

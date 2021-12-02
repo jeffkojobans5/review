@@ -38,19 +38,18 @@
                         <th scope="col"> Comments </th>
                     </tr>
                 </thead>
-
-<tbody>
-    @foreach($allReviews as $JsLounge => $value)
-    <tr>
-        <th scope="row"> {{ $allReviews->firstItem() + $JsLounge }} </th>
-        <td> {{ $allReviews[$JsLounge]->created_at->format('d M Y ---- H:i') }} </td> 
-        <td> {{ $allReviews[$JsLounge]->foodRatings  }} </td> 
-        <td> {{ $allReviews[$JsLounge]->serviceRatings ? $allReviews[$JsLounge]->serviceRatings : 'N/A' }} </td> 
-        <td> {{ $allReviews[$JsLounge]->comments ? $allReviews[$JsLounge]->comments : 'N/A' }} </td> 
-    </tr>
-    @endforeach
-</tbody>
-</table>
+        <tbody>
+            @foreach($allReviews as $JsLounge => $value)
+            <tr>
+                <th scope="row"> {{ $allReviews->firstItem() + $JsLounge }} </th>
+                <td> {{ $allReviews[$JsLounge]->created_at->format('d M Y ---- H:i') }} </td> 
+                <td> {{ $allReviews[$JsLounge]->foodRatings  }} </td> 
+                <td> {{ $allReviews[$JsLounge]->serviceRatings ? $allReviews[$JsLounge]->serviceRatings : 'N/A' }} </td> 
+                <td> {{ $allReviews[$JsLounge]->comments ? $allReviews[$JsLounge]->comments : 'N/A' }} </td> 
+            </tr>
+            @endforeach
+        </tbody>
+        </table>
         <div class="container mt-5">
             <?php echo $allReviews->links() ?>
         </div>
