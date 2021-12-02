@@ -132,7 +132,7 @@ class ReviewController extends Controller
     
     public function export () {
 
-        return Excel::download(new ReviewsExport, 'invoices.xlsx');
+        return Excel::download(new ReviewsExport, 'JsLoungeReview.xlsx');
 
     }    
 }
