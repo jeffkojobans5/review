@@ -12,9 +12,13 @@
                 </div>
                 <div class="spur-card-title col-md-6"> Generate Report </div>
                 <div class="spur-card-title col-md-6">  
-                    @if(!$allReviews->isEmpty())
-                        <a href="/export" class="btn btn-dark mb-1" style="display:inline-block ; float:right"> Generate Report </a>                    
-                    @endif                    
+                    {{-- @if(($allReviews))
+                    <form action="/export" method="get">
+                        <input type="hidden" id="exportStart" name="start_date" value="">                    
+                        <input type="hidden" id="exportEnd" name="end_date" value="">                    
+                        <button type="submit" name="submit" class="btn btn-dark mb-1" style="display:inline-block ; float:right"> Generate Report </a>                    
+                        </form>                            
+                    @endif                     --}}
                 </div>
             </div>
             <div class="card-body ">
@@ -29,8 +33,8 @@
                             <input type="date" class="form-control" id="endDate" name="end_date" placeholder="End Date">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="endDate">Search</label>
-                            <button type="submit" name="submit" class="btn btn-primary" style="display:block ; width:100%;"> Search </button>                    
+                            <label for="endDate">Generate</label>
+                            <button type="submit" name="submit" class="btn btn-primary" style="display:block ; width:100%;"> <i class="fas fa-file"></i> Generate </button>                    
                         </div>                                                
                     </form>
             </div>
@@ -38,7 +42,7 @@
     </div>
 </div>
 
-<div class="card spur-card mt-2 ">
+{{-- <div class="card spur-card mt-2 ">
     <div class="card-header">
         <div class="spur-card-menu">
             @if (session('status'))
@@ -50,14 +54,41 @@
     </div>     
     <div class="card-body">
         @include('admin.subview.table')
-        @if($allReviews->isEmpty())
-            <h4 class="mt-4"> Sorry, there are no records </h4>
-        @endif
+        @if(($allReviews))        
+            @if($allReviews->isEmpty())
+                <h4 class="mt-4"> Sorry, there are no records to generate</h4>
+            @endif
+        @endif    
     </div>
         
-</div>
+</div> --}}
 
 </div>
+
 
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+    // let queryStartDate = document.getElementById('startDate');
+    // let queryEndDate = document.getElementById('endDate');
+    // let exportStartDate = document.getElementById('exportStart');
+    // let exportEndDate = document.getElementById('exportEnd');
+
+    
+    // const handleChange = (e) => {
+    //     if(e.target.id === "startDate" ) {
+    //         exportStartDate.value = e.target.value;
+    //     } 
+    //     if (e.target.id === "endDate") {
+    //         exportEndDate.value = e.target.value;
+    //     }
+    //  }
+     
+
+    // queryStartDate.addEventListener('change' , (e)=>handleChange(e) , false)
+    // queryEndDate.addEventListener('change' , (e)=>handleChange(e) , false)
+
+</script>
+@stop
 

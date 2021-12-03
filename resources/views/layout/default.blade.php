@@ -52,6 +52,14 @@
                         </div>
                     </div>                    
 
+                    {{-- <div class="dash-nav-dropdown ">
+                        <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
+                            <i class="fas fa-search"></i> Search </a>
+                        <div class="dash-nav-dropdown-menu">
+                            <a href="/JsLounge/report" class="dash-nav-dropdown-item"> Generate Report </a>
+                        </div>
+                    </div>       --}}
+
                 </nav>
             </div>
             <div class="dash-app">
@@ -88,4 +96,5 @@
             </div>
         </div>
     </body>
+    @yield('scripts')     
 </html>

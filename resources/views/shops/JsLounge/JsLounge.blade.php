@@ -38,18 +38,18 @@
                             <p> Satisfied </p>
                             <h1 class="food-emoji"> &#128522;  </h1>                          
                         </section>
-                        <section>
+                        {{-- <section>
                             <p>  Neutral </p>
                             <h1 class="food-emoji"> &#128528;   </h1>                          
-                        </section>
+                        </section> --}}
                         <section>
                             <p> Unsatisfied </p>
                             <h1 class="food-emoji"> &#128533;  </h1>                          
                         </section>
-                        <section>
+                        {{-- <section>
                             <p> Very Unsatisfied </p>
                             <h1 class="food-emoji"> &#128544;   </h1>                          
-                        </section>                                                                                                
+                        </section>                                                                                                 --}}
                     </div>       
                 </div>    
                     
@@ -64,18 +64,18 @@
                             <p> Satisfied </p>
                             <h1 class="service-emoji"> &#128522;  </h1>                          
                         </section>
-                        <section>
+                        {{-- <section>
                             <p>  Neutral </p>
                             <h1 class="service-emoji"> &#128528;   </h1>                          
-                        </section>
+                        </section> --}}
                         <section>
                             <p> Unsatisfied </p>
                             <h1 class="service-emoji"> &#128533;  </h1>                          
                         </section>
-                        <section>
+                        {{-- <section>
                             <p> Very Unsatisfied </p>
                             <h1 class="service-emoji"> &#128544;   </h1>                          
-                        </section>                                                                                                
+                        </section>                                                                                                 --}}
                     </div>  
                 </div>   
 
@@ -102,6 +102,16 @@
     </body>
 
     <script src="{{ asset('js/index.js') }}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKLPBDLLCN"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RKLPBDLLCN');
+
+    </script>
 
 </html>
 

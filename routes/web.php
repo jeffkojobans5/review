@@ -22,6 +22,7 @@ Route::get('/dashboard' , [ReviewController::class , 'DashJsLounge']);
 Route::get('/reviews/JsLounge' , [ReviewController::class , 'reviewsJsLounge']);
 Route::get('/JsLounge/report' , [ReviewController::class , 'JsLoungeReport'])->name('GenerateJsLoungeReport');
 Route::get('/export',  [ReviewController::class , 'export'])->name('export');
+// Route::get('/JsLoungeSearch',  [ReviewController::class , 'JsLoungeSearch'])->name('JsLoungeSearch');
 
 
 });

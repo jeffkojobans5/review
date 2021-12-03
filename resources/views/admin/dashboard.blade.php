@@ -51,4 +51,17 @@
     </div>
 
 </div>
+
 @endsection
+
+@section('scripts')
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RKLPBDLLCN"></script>
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RKLPBDLLCN');
+</script>
+@stop
+

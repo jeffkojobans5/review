@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Review;
 use App\Exports\ReviewsExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -117,23 +118,32 @@ class ReviewController extends Controller
     
 
     public function JsLoungeReport ( Request $request)  {
-        
+
         if (request()->start_date || request()->end_date) {
             $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
-            $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
-            $allReviews = Review::whereBetween('created_at',[$start_date,$end_date])->get();
-        } else {
-            $allReviews = Review::all();
-        }
-    
-        return view('admin.JsLoungeReport')->with('allReviews', $allReviews)->with('status' , 'hello') ;
+            $end_date = Date($request->end_date . " " ."23:23:59");
+            return (new ReviewsExport)->forStartYear($start_date)->forEndYear($end_date)->download('ReviewReport.xlsx');;                    
+            // return redirect()->route('/dashboard');
+        } 
+
+
+        // else {
+        //     $allReviews = Review::all();
+        // }
+
+        // return view('admin.JsLoungeReport')->with('allReviews', $allReviews)->with('status' , 'hello') ;
+        return view('admin.JsLoungeReport');
     }
 
     
-    public function export () {
+    public function export (Request $request) {
 
-        return Excel::download(new ReviewsExport, 'JsLoungeReview.xlsx');
+        $startDate = $request->start_date ? Carbon::parse(request()->start_date)->toDateTimeString() : Date('Y-m-d 00:00:00');
+        $endDate = $request->end_date ? Date($request->end_date . " " ."23:23:59") : Date('Y-m-d 23:59:59');
 
-    }    
+        return (new ReviewsExport)->forStartYear($startDate)->forEndYear($endDate)->download('ReviewReport.xlsx');        
+
+    }
+
 }
 

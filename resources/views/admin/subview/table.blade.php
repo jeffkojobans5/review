@@ -12,15 +12,17 @@
         $counter = 1
     @endphp
 <tbody>
+@if(($allReviews) && !$allReviews->isEmpty())    
 @foreach($allReviews as $JsLounge )
     <tr>
-        <th scope="row"> {{ $JsLounge->id }} </th>
+        <th scope="row"> {{ $counter++}} </th>
         <td> {{ $JsLounge->created_at->format('d M Y ---- H:i') }} </td> 
         <td> {{ $JsLounge->foodRatings  }} </td> 
         <td> {{ $JsLounge->serviceRatings ? $JsLounge->serviceRatings : 'N/A' }} </td> 
         <td> {{ $JsLounge->comments ? $JsLounge->comments : 'N/A' }} </td> 
     </tr>
 @endforeach
+@endif
 
 </tbody>
 </table>
