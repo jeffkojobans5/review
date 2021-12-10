@@ -82,6 +82,11 @@ class ReviewController extends Controller
 
     public function reviewsJsLounge() {
         $allReviews = Review::where('branch' , 'JsLounge')->paginate(10);
+        $allRev = Review::where('branch' , 'JsLounge')->get();
+
+        
+
+
         $verySatisfiedFood = Review::where('foodRatings' , 'Very Satisfied')->where('branch' , 'JsLounge')->get();
         $satisfiedFood = Review::where('foodRatings' , 'Satisfied')->where('branch' , 'JsLounge')->get();
         $neutralFood = Review::where('foodRatings' , 'Neutral')->where('branch' , 'JsLounge')->get();
@@ -98,7 +103,7 @@ class ReviewController extends Controller
         return view('admin.JsLounge')->with('allReviews' , $allReviews)->with('verySatisfiedFood' , $verySatisfiedFood)->with('satisfiedFood' , $satisfiedFood)->with('neutralFood' , $neutralFood)
                 ->with('unsatisfiedFood' , $unsatisfiedFood)->with('veryUnsatisfiedFood' , $veryUnsatisfiedFood)->with('verySatisfiedService' , $verySatisfiedService)
                 ->with('satisfiedService' , $satisfiedService)->with('neutralService' , $neutralService)->with('unsatisfiedService' , $unsatisfiedService)
-                ->with('veryUnsatisfiedService' , $veryUnsatisfiedService);
+                ->with('veryUnsatisfiedService' , $veryUnsatisfiedService)->with('allRev' , $allRev);
     }    
 
 
@@ -126,12 +131,6 @@ class ReviewController extends Controller
             // return redirect()->route('/dashboard');
         } 
 
-
-        // else {
-        //     $allReviews = Review::all();
-        // }
-
-        // return view('admin.JsLoungeReport')->with('allReviews', $allReviews)->with('status' , 'hello') ;
         return view('admin.JsLoungeReport');
     }
 

@@ -4,7 +4,7 @@
 
 <div class="col-lg-12 row">
     <div class="col-md-6">
-        <h1 class="dash-title"> Js Lounge Food <span class="badge badge-pill badge-warning"> {{ count($allReviews) }} </span> </h1>
+        <h1 class="dash-title"> Js Lounge Food <span class="badge badge-pill badge-warning"> {{ count($allRev) }} </span> </h1>
         <a href="#" class="btn btn-dark mb-1"> &#128512;  <span class="badge badge-pill badge-light ml-2"> {{ count($verySatisfiedFood)}} </span></a>
         <a href="#" class="btn btn-dark mb-1"> &#128522;  <span class="badge badge-pill badge-light ml-2"> {{ count($satisfiedFood)}} </span></a>
         {{-- <a href="#" class="btn btn-dark mb-1"> &#128528;  <span class="badge badge-pill badge-light ml-2"> {{ count($neutralFood) }} </span></a> --}}
@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-md-6">
-        <h1 class="dash-title"> Js Lounge Service <span class="badge badge-pill badge-warning"> {{ count($allReviews) }} </span> </h1>
+        <h1 class="dash-title"> Js Lounge Service <span class="badge badge-pill badge-warning"> {{ count($allRev) }} </span> </h1>
         <a href="#" class="btn btn-dark mb-1"> &#128512;  <span class="badge badge-pill badge-light ml-2"> {{ count($verySatisfiedService)}} </span></a>
         <a href="#" class="btn btn-dark mb-1"> &#128522;  <span class="badge badge-pill badge-light ml-2"> {{ count($satisfiedService)}} </span></a>
         {{-- <a href="#" class="btn btn-dark mb-1"> &#128528;  <span class="badge badge-pill badge-light ml-2"> {{ count($neutralService) }} </span></a> --}}
