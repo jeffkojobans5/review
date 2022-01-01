@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,9 +45,12 @@ Route::post('/thank___you', [ReviewController::class , 'JsLounge'])->name('thank
 //     return view('shops.Linaks.linaks');
 // });
 
-Route::get('/JsLounge' , function() {
+Route::get('/JsLounge/{id}' , function($id) {
+    // $min = 1;
+    // $max = 3000;
+    // $id = rand(0, $max);
     return view('shops.JsLounge.JsLounge');
-});
+})->name('JsLounge');
 
 Route::get('/' , function() {
     return view('shops.JsLounge.JsLounge');
@@ -52,4 +58,10 @@ Route::get('/' , function() {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dealRate' , [ReviewController::class , 'dealRate']);
+
+Route::get('/rate' , function() {
+    return view('clickRate');
+});
+

@@ -85,8 +85,6 @@ class ReviewController extends Controller
         $allRev = Review::where('branch' , 'JsLounge')->get();
 
         
-
-
         $verySatisfiedFood = Review::where('foodRatings' , 'Very Satisfied')->where('branch' , 'JsLounge')->get();
         $satisfiedFood = Review::where('foodRatings' , 'Satisfied')->where('branch' , 'JsLounge')->get();
         $neutralFood = Review::where('foodRatings' , 'Neutral')->where('branch' , 'JsLounge')->get();
@@ -128,7 +126,6 @@ class ReviewController extends Controller
             $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
             $end_date = Date($request->end_date . " " ."23:23:59");
             return (new ReviewsExport)->forStartYear($start_date)->forEndYear($end_date)->download('ReviewReport.xlsx');;                    
-            // return redirect()->route('/dashboard');
         } 
 
         return view('admin.JsLoungeReport');
@@ -144,5 +141,21 @@ class ReviewController extends Controller
 
     }
 
+
+
+
+    public function clickRate () {
+        return view('clickRate');
+    }
+
+
+    public function dealRate () {
+        
+        $min = 1;
+        $max = 100000;
+        $id = rand($min,$max);
+
+        return view('shops.JsLounge.JsLounge' , ['id' => $id]);
+    }
 }
 
